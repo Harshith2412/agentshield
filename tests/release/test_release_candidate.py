@@ -7,10 +7,14 @@ import json
 import re
 import subprocess
 import sys
-import tomllib
 from pathlib import Path
 
 import pytest
+
+try:
+    import tomllib
+except ModuleNotFoundError:  # Python 3.10
+    import tomli as tomllib
 
 import agentshield
 from agentshield import __version__
