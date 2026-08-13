@@ -21,5 +21,27 @@ jobs:
       - run: python -m twine check dist/*
       - run: python -m cyclonedx_py environment --output-format JSON --output-file dist/sbom.cdx.json
       - uses: actions/upload-artifact@v4
-        with: {name: release-candidate-artifacts, path: dist/}
-      # Publishing is intentionally omitted; a human must review downloaded artifacts.
+        with:
+          name: release-candidate-artifacts
+          path: |
+            dist/*.whl
+            dist/*.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-sbom
+          path: dist/sbom.cdx.json
+
+  publish:
+    needs: build
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-candidate-artifacts
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
