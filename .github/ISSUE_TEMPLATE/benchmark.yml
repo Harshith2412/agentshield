@@ -1,0 +1,11 @@
+name: Benchmark reproduction issue
+description: Report controlled benchmark or manifest differences
+body:
+  - type: textarea
+    attributes: {label: Command and output}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Environment metadata, description: Paste the manifest environment section without secrets.}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Changed metrics}

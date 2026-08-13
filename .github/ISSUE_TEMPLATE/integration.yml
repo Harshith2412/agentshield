@@ -1,0 +1,15 @@
+name: Framework integration request
+description: Propose a future adapter and conformance plan
+body:
+  - type: input
+    attributes: {label: Framework and version range}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Provenance and interception boundaries}
+    validations: {required: true}
+  - type: checkboxes
+    attributes:
+      label: Conformance
+      options:
+        - label: I understand every shared security invariant must pass.
+          required: true

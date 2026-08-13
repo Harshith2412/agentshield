@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentshield"
+dynamic = ["version"]
+description = "Provenance-aware runtime security primitives for autonomous AI agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "AgentShield contributors" }]
+keywords = ["ai-agents", "security", "provenance", "policy"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+release = ["build>=1.2", "twine>=5", "cyclonedx-bom>=5", "pip-audit>=2.7", "ruff>=0.6", "bandit>=1.7"]
+langgraph = ["langgraph>=0.2,<2"]
+microsoft-agent-framework = ["agent-framework-core>=1,<2"]
+frameworks = ["langgraph>=0.2,<2", "agent-framework-core>=1,<2"]
+
+[project.scripts]
+agentshield = "agentshield.cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "agentshield._version.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["agentshield*", "demo*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+markers = ["ollama: optional live test requiring a user-managed local Ollama service and model"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint]
+# Release-candidate gate: correctness errors only. Broader style adoption is a
+# post-v0.1 migration so this release does not rewrite unrelated research code.
+select = ["E9", "F63", "F7", "F82"]

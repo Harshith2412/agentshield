@@ -1,0 +1,32 @@
+name: tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  base:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "${{ matrix.python-version }}", cache: pip}
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m pytest -q
+      - run: python -m agentshield demo
+  optional-frameworks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        extra: [langgraph, microsoft-agent-framework]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e ".[dev,${{ matrix.extra }}]"
+      - run: python -m pytest -q tests/integrations tests/stage7 tests/stage8/test_async_integrations.py
+      - run: python -m agentshield conformance

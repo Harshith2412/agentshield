@@ -1,0 +1,194 @@
+{
+  "agentshield_version": "0.1.0rc1",
+  "benchmarks": {
+    "deterministic": {
+      "agentshield_version": "0.1.0rc1",
+      "benchmark": "deterministic",
+      "configuration": {
+        "network": false,
+        "seed": null,
+        "simulated_side_effects": true
+      },
+      "corpora": {
+        "attack": {
+          "sha256": "eede129d9bbde2ced023cea2be2076b31046ef66ea15b44baf8af279660f18e6",
+          "version": "1.0"
+        },
+        "benign": {
+          "sha256": "1d79d95b50bb9731a1f49f4789fa40a3f640b9d7ff60eb654a330c3feb9578c4",
+          "version": "1.0"
+        }
+      },
+      "dependencies": {
+        "agent-framework-core": null,
+        "langgraph": null
+      },
+      "environment": {
+        "implementation": "CPython",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "python": "3.14.3"
+      },
+      "failures": [],
+      "limitations": [
+        "Scripted local corpus; results do not establish universal attack coverage."
+      ],
+      "metrics": {
+        "ambiguous_attributions": 1,
+        "attack_detection_rate": 1.0,
+        "attack_mitigation_rate": 1.0,
+        "attacks_successful_protected": 0,
+        "attacks_successful_unprotected": 27,
+        "attribution_success_rate": 0.9629629629629629,
+        "average_attribution_path_length": 4.814814814814815,
+        "benign_scenarios": 15,
+        "blocked_unauthorized_actions": 27,
+        "false_negatives": 0,
+        "false_positive_rate": 0.0,
+        "false_positives": 0,
+        "per_family": [
+          {
+            "detected": 12,
+            "false_negatives": 0,
+            "family": "indirect_prompt_injection",
+            "mitigated": 12,
+            "variants": 12
+          },
+          {
+            "detected": 7,
+            "false_negatives": 0,
+            "family": "malicious_tool_output",
+            "mitigated": 7,
+            "variants": 7
+          },
+          {
+            "detected": 8,
+            "false_negatives": 0,
+            "family": "memory_poisoning",
+            "mitigated": 8,
+            "variants": 8
+          }
+        ],
+        "total_attack_variants": 27
+      },
+      "schema_version": "1.0",
+      "timestamp": "2026-08-12T20:39:37.899031+00:00"
+    },
+    "frameworks": {
+      "agentshield_version": "0.1.0rc1",
+      "benchmark": "frameworks",
+      "configuration": {
+        "network": false,
+        "seed": null,
+        "simulated_side_effects": true
+      },
+      "corpora": {
+        "attack": {
+          "sha256": "eede129d9bbde2ced023cea2be2076b31046ef66ea15b44baf8af279660f18e6",
+          "version": "1.0"
+        },
+        "benign": {
+          "sha256": "1d79d95b50bb9731a1f49f4789fa40a3f640b9d7ff60eb654a330c3feb9578c4",
+          "version": "1.0"
+        }
+      },
+      "dependencies": {
+        "agent-framework-core": null,
+        "langgraph": null
+      },
+      "environment": {
+        "implementation": "CPython",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "python": "3.14.3"
+      },
+      "failures": [],
+      "limitations": [
+        "Controlled adapter harness; optional framework packages are not required by this benchmark."
+      ],
+      "metrics": {
+        "consistent": true,
+        "langgraph": {
+          "attack_attempts": 1,
+          "attribution_success": 1,
+          "authorized_actions_allowed": 1,
+          "blocks": 1,
+          "framework": "langgraph",
+          "integration_failures": 0,
+          "privileged_proposals": 2,
+          "provenance_loss_failures": 0,
+          "scope_violations_blocked": 1,
+          "unauthorized_executions_protected": 0,
+          "unauthorized_executions_unprotected": 1,
+          "unauthorized_proposals": 2
+        },
+        "microsoft": {
+          "attack_attempts": 1,
+          "attribution_success": 1,
+          "authorized_actions_allowed": 1,
+          "blocks": 1,
+          "framework": "microsoft_agent_framework",
+          "integration_failures": 0,
+          "privileged_proposals": 2,
+          "provenance_loss_failures": 0,
+          "scope_violations_blocked": 1,
+          "unauthorized_executions_protected": 0,
+          "unauthorized_executions_unprotected": 1,
+          "unauthorized_proposals": 2
+        }
+      },
+      "schema_version": "1.0",
+      "timestamp": "2026-08-12T20:39:37.944109+00:00"
+    },
+    "persistence": {
+      "agentshield_version": "0.1.0rc1",
+      "benchmark": "persistence",
+      "configuration": {
+        "network": false,
+        "seed": null,
+        "simulated_side_effects": true
+      },
+      "corpora": {
+        "attack": {
+          "sha256": "eede129d9bbde2ced023cea2be2076b31046ef66ea15b44baf8af279660f18e6",
+          "version": "1.0"
+        },
+        "benign": {
+          "sha256": "1d79d95b50bb9731a1f49f4789fa40a3f640b9d7ff60eb654a330c3feb9578c4",
+          "version": "1.0"
+        }
+      },
+      "dependencies": {
+        "agent-framework-core": null,
+        "langgraph": null
+      },
+      "environment": {
+        "implementation": "CPython",
+        "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+        "python": "3.14.3"
+      },
+      "failures": [],
+      "limitations": [
+        "Latency is host-dependent and excluded from deterministic regression checks.",
+        "SQLite benchmark uses temporary local files."
+      ],
+      "metrics": {
+        "attributions_after_reload": 2,
+        "checkpoint_latency_ms": 1.1544579756446183,
+        "concurrent_requests": 3,
+        "integrity_failures_detected": 1,
+        "legitimate_resumed_actions_allowed": 1,
+        "persisted_attack_attempts": 2,
+        "persisted_unauthorized_executions": 0,
+        "persistence_latency_ms": 0.6007920019328594,
+        "reload_latency_ms": 0.3885829937644303,
+        "replay_attempts_blocked": 1,
+        "stale_checkpoints_detected": 1,
+        "streamed_proposals_evaluated": 1,
+        "sync_async_consistent": true
+      },
+      "schema_version": "1.0",
+      "timestamp": "2026-08-12T20:39:37.979929+00:00"
+    }
+  },
+  "generated_at": "2026-08-12T20:39:37.858215+00:00",
+  "schema_version": "1.0"
+}

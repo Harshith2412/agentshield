@@ -1,0 +1,10 @@
+name: Security-model question
+description: Discuss documented guarantees or limitations; do not report vulnerabilities here
+body:
+  - type: markdown
+    attributes: {value: "Suspected vulnerabilities must use private vulnerability reporting."}
+  - type: textarea
+    attributes: {label: Question, description: Cite the relevant threat-model or security-model section.}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Proposed clarification}

@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use AgentShield in research, please cite this software."
+title: "AgentShield"
+type: software
+version: "0.1.0"
+authors:
+  - name: "AgentShield contributors"
+license: MIT
+abstract: "Provenance-aware runtime security primitives for autonomous AI agents."
+keywords:
+  - AI agents
+  - security
+  - provenance
+  - runtime enforcement

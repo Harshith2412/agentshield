@@ -1,0 +1,19 @@
+name: benchmark-regression
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install .
+      - run: agentshield benchmark verify
+      - run: agentshield benchmark all --format json --manifest benchmark-results.json
+      - uses: actions/upload-artifact@v4
+        with: {name: benchmark-results, path: benchmark-results.json}
