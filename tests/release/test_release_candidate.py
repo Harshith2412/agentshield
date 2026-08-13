@@ -7,6 +7,7 @@ import json
 import re
 import subprocess
 import sys
+import tomllib
 from pathlib import Path
 
 import pytest
@@ -115,6 +116,24 @@ def test_version_has_one_authoritative_python_source():
     assert 'attr = "agentshield._version.__version__"' in pyproject
     assert 'version = "0.1.0"' not in pyproject
     assert __version__ == "0.1.0"
+
+
+def test_distribution_identity_preserves_import_and_cli_names():
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]
+    assert project["name"] == "agentshield-provenance"
+    assert __version__ == "0.1.0"
+    assert agentshield.AgentShield
+    assert project["scripts"]["agentshield"] == "agentshield.cli:main"
+
+
+def test_project_urls_are_canonical():
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]
+    assert project["urls"] == {
+        "Homepage": "https://github.com/Harshith2412/agentshield",
+        "Repository": "https://github.com/Harshith2412/agentshield",
+        "Issues": "https://github.com/Harshith2412/agentshield/issues",
+        "Documentation": "https://github.com/Harshith2412/agentshield/tree/main/docs",
+    }
 
 
 def test_python_module_entrypoint_version():

@@ -30,10 +30,18 @@ flowchart TD
 Requires Python 3.10 or newer.
 
 ```bash
-python -m pip install -e .
+python -m pip install agentshield-provenance
 agentshield demo
 agentshield benchmark deterministic
 ```
+
+The PyPI distribution is `agentshield-provenance`; the Python package/import namespace and CLI remain `agentshield`:
+
+```python
+from agentshield import AgentShield
+```
+
+For development from a repository checkout, use `python -m pip install -e .`.
 
 Minimal public API example:
 

@@ -1,6 +1,7 @@
 # Release checklist
 
 - [x] Confirm version and changelog
+- [x] PyPI distribution name verified: `agentshield-provenance`
 - [x] Run complete tests and documentation examples
 - [x] Run Ruff, Bandit, and secret/path scans
 - [x] Run `pip-audit` for base and selected optional environments
@@ -13,3 +14,5 @@
 - [x] Validate README links and `CITATION.cff`
 - [x] Review security policy and responsible-use guidance
 - [ ] Obtain human release approval before tag or publication
+- [ ] Upload distribution to PyPI
+- [ ] Create GitHub Release

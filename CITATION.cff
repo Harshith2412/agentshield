@@ -3,6 +3,8 @@ message: "If you use AgentShield in research, please cite this software."
 title: "AgentShield"
 type: software
 version: "0.1.0"
+url: "https://github.com/Harshith2412/agentshield"
+repository-code: "https://github.com/Harshith2412/agentshield"
 authors:
   - name: "AgentShield contributors"
 license: MIT

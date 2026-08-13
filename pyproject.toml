@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "agentshield"
+name = "agentshield-provenance"
 dynamic = ["version"]
 description = "Provenance-aware runtime security primitives for autonomous AI agents"
 readme = "README.md"
@@ -19,6 +19,12 @@ classifiers = [
   "Topic :: Security",
 ]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Harshith2412/agentshield"
+Repository = "https://github.com/Harshith2412/agentshield"
+Issues = "https://github.com/Harshith2412/agentshield/issues"
+Documentation = "https://github.com/Harshith2412/agentshield/tree/main/docs"
 
 [project.optional-dependencies]
 dev = ["pytest>=7.4"]

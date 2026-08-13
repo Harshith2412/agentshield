@@ -30,5 +30,6 @@ All notable changes are documented here. This project follows semantic versionin
 
 ### Release engineering
 
+- The PyPI distribution is named `agentshield-provenance`; the Python import namespace and CLI remain `agentshield`.
 - Packaging metadata, CI/release workflows, security tooling, SBOM generation, research documentation, and contributor guidance.
 - Optional Stage 10 local-Ollama adversarial experiment infrastructure with versioned natural-language corpora and separate model-resistance/runtime-mitigation metrics.
